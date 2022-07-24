@@ -1,0 +1,4 @@
+PyQRCode~=1.2.1
+opencv-python~=4.6.0.66
+appJar~=0.94.0
+Pillow~=9.2.0
