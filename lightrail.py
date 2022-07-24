@@ -2,7 +2,7 @@ from appJar import gui
 from PIL import Image, ImageTk
 import cv2
 import platform
-
+import os
 import pyqrcode
 
 
@@ -68,6 +68,9 @@ with gui("LightRail v0.1", "550x550", bg='#282828', fg="white",
     app.enableEnter(generate)
     app.setPadding([10, 10])
     app.setInPadding([10, 10])
+    if not os.path.exists("lightrail.png"):
+        qr_data = pyqrcode.create("Lightrail QR")
+        qr_data.png('lightrail.png', scale=5)
     photo = ImageTk.PhotoImage(Image.open("lightrail.png"))
     app.addImageData("pic", photo, fmt="PhotoImage")
     app.label("status", "LightRail", font={'size': 20, 'family': "Roboto Light"})
